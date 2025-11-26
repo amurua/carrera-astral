@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -12,7 +13,8 @@ body {
   image-rendering: pixelated;
   image-rendering: crisp-edges;
   -ms-interpolation-mode: nearest-neighbor;
-  background-color: #111;
+  background-color: #0c3f1f;
+  color: #fff;
 }
 
 /* Para que todos los sprites se vean pixelados */
@@ -43,4 +45,286 @@ img {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #666;
+}
+
+/* -------- Piezas visuales para la pista ---------- */
+.text-pixel-sm {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.pixel-border {
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.08), 0 0 0 2px rgba(0, 0, 0, 0.6);
+}
+
+.pixel-sky {
+  background: radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.08), transparent 32%),
+    radial-gradient(circle at 85% 18%, rgba(59, 130, 246, 0.08), transparent 36%),
+    repeating-linear-gradient(
+      45deg,
+      #0f5d2c 0px,
+      #0f5d2c 12px,
+      #0e5629 12px,
+      #0e5629 24px
+    ),
+    #0b3a1d;
+}
+
+.scrolling-stars {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 4px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.06) 1px, transparent 5px);
+  background-size: 34px 34px, 48px 48px;
+  background-position: 0 0, 20px 10px;
+  opacity: 0.25;
+  animation: bgscroll 28s linear infinite;
+  pointer-events: none;
+}
+
+.pixel-nebula {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 70%, rgba(74, 222, 128, 0.16), transparent 42%),
+    radial-gradient(circle at 75% 35%, rgba(248, 113, 113, 0.18), transparent 45%),
+    radial-gradient(circle at 50% 10%, rgba(56, 189, 248, 0.18), transparent 35%);
+  filter: blur(38px);
+  pointer-events: none;
+}
+
+.pixel-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.12) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.35;
+  mask-image: linear-gradient(to bottom, transparent 5%, black 30%, black 70%, transparent 95%);
+  pointer-events: none;
+}
+
+.glass-panel {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+.neon-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(5, 12, 20, 0.6), rgba(13, 21, 15, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+}
+
+.neon-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.08), transparent 25%),
+    radial-gradient(circle at 90% 10%, rgba(74, 222, 128, 0.08), transparent 25%),
+    radial-gradient(circle at 15% 80%, rgba(56, 189, 248, 0.08), transparent 20%);
+  pointer-events: none;
+}
+
+.pixel-lane {
+  position: relative;
+  background: linear-gradient(180deg, rgba(17, 90, 46, 0.95), rgba(15, 78, 39, 0.95));
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.35), 0 14px 0 rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  min-height: 140px;
+}
+
+.pixel-lane:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 2px rgba(244, 63, 94, 0.35), 0 14px 0 rgba(0, 0, 0, 0.2);
+}
+
+.lane-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 34%, rgba(34, 197, 94, 0.4) 6px, transparent 14px),
+    radial-gradient(circle at 80% 40%, rgba(52, 211, 153, 0.35) 5px, transparent 15px),
+    radial-gradient(circle at 55% 65%, rgba(74, 222, 128, 0.28) 7px, transparent 16px);
+  pointer-events: none;
+  opacity: 0.8;
+  z-index: 0;
+}
+
+.lane-objects {
+  position: absolute;
+  inset: 8px;
+  background-image:
+    radial-gradient(circle, rgba(0, 0, 0, 0.55) 1px, transparent 1px),
+    radial-gradient(circle, rgba(0, 0, 0, 0.4) 1px, transparent 2px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 2px, transparent 2px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08) 2px, transparent 2px);
+  background-size: 24px 24px, 32px 32px, 18px 18px, 18px 18px;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.road {
+  position: absolute;
+  inset: 22px 18px 18px 18px;
+  background: linear-gradient(90deg, #d7132b 0 12px, #f1f5f9 12px 18px, #2c3244 18px calc(100% - 18px), #f1f5f9 calc(100% - 18px) calc(100% - 12px), #d7132b calc(100% - 12px));
+  border-radius: 18px;
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.4), 0 10px 0 rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.curb {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 18px;
+  background-size: 18px 18px;
+  background-repeat: repeat-y;
+}
+
+.curb-left {
+  left: 0;
+  background-image: repeating-linear-gradient(180deg, #d7132b 0 9px, #f8fafc 9px 18px);
+}
+
+.curb-right {
+  right: 0;
+  background-image: repeating-linear-gradient(180deg, #f8fafc 0 9px, #d7132b 9px 18px);
+}
+
+.center-line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  bottom: 0;
+  width: 12px;
+  background-image: repeating-linear-gradient(180deg, transparent 0 14px, #fefefe 14px 26px);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  opacity: 0.95;
+  z-index: 1;
+}
+
+.asphalt-texture {
+  position: absolute;
+  inset: 6px;
+  background:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.08) 0 6px, rgba(255, 255, 255, 0.02) 6px 12px),
+    repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.2) 0 4px, transparent 4px 10px);
+  mix-blend-mode: soft-light;
+  opacity: 0.3;
+}
+
+.car-wrapper {
+  position: absolute;
+  bottom: 32px;
+  transition: left 700ms ease, transform 250ms ease;
+  transform: translateY(-6px);
+  z-index: 2;
+}
+
+.car-wrapper:hover {
+  transform: translateY(-10px) scale(1.03);
+}
+
+.pixel-shadow {
+  position: absolute;
+  width: 64px;
+  height: 16px;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.6) 0%, transparent 72%);
+  top: 30px;
+  left: -14px;
+  filter: blur(2px);
+}
+
+.pixel-car {
+  --px: 6px;
+  position: relative;
+  width: calc(var(--px) * 3.4);
+  height: calc(var(--px) * 2.4);
+  background: var(--car-color, #ff6b6b);
+  box-shadow:
+    var(--px) 0 var(--car-color, #ff6b6b),
+    calc(var(--px) * 2) 0 var(--car-color, #ff6b6b),
+    0 var(--px) #0b1320,
+    var(--px) var(--px) var(--car-color, #ff6b6b),
+    calc(var(--px) * 2) var(--px) #0b1320,
+    0 calc(var(--px) * 2) var(--car-color, #ff6b6b),
+    var(--px) calc(var(--px) * 2) #0b1320,
+    calc(var(--px) * 2) calc(var(--px) * 2) var(--car-color, #ff6b6b),
+    -var(--px) var(--px) #22d3ee,
+    calc(var(--px) * 3.2) var(--px) #22d3ee,
+    var(--px) calc(var(--px) * -1) #fef08a,
+    var(--px) calc(var(--px) * 3) #fef08a,
+    calc(var(--px) * 1.6) calc(var(--px) * 1.2) #0ea5e9;
+  border: 2px solid #06060e;
+  outline: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.pixel-car::after {
+  content: "";
+  position: absolute;
+  top: calc(var(--px) * -0.6);
+  left: calc(var(--px) * 0.6);
+  width: calc(var(--px) * 2.2);
+  height: calc(var(--px) * 3.4);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.35));
+  mix-blend-mode: screen;
+  opacity: 0.82;
+}
+
+.exhaust {
+  position: absolute;
+  left: -18px;
+  top: 10px;
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.65));
+  animation: exhaust 800ms infinite;
+}
+
+@keyframes exhaust {
+  0% {
+    transform: translateX(0) scale(0.8);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(-8px) scale(1.4);
+    opacity: 0;
+  }
+}
+
+.retro-hud {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+}
+
+.hud-chip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.65));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12), 0 6px 0 rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hud-chip .label {
+  color: #a5f3fc;
+  font-size: 10px;
+}
+
+.hud-chip .value {
+  color: #fefefe;
+  font-weight: 800;
+  font-size: 14px;
 }
