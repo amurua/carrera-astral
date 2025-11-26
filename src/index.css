@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -----------------------------------------
+   🎮 ESTILO GLOBAL RETRO PIXEL ART
+   ----------------------------------------- */
+
+/* Fuente pixel retro */
+body {
+  font-family: "Press Start 2P", cursive;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+  background-color: #111;
+}
+
+/* Para que todos los sprites se vean pixelados */
+img {
+  image-rendering: pixelated !important;
+}
+
+/* Animación de fondo desplazándose (parallax) */
+@keyframes bgscroll {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -512px 0;
+  }
+}
+
+/* Scrollbar retro opcional (queda muy bonito) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #111;
+}
+::-webkit-scrollbar-thumb {
+  background: #444;
+  border: 2px solid #111;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
